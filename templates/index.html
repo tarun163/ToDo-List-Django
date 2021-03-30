@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <title>home-page</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">To-do</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tasks">Tasks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="signup">Sign-up</a>
+                    </li>
+
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    {% if success %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Success</strong> Your task has been added!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+
+
+    <div class="container  my-3">
+        <h1 class="text-center ">Welcome ,{{name|upper}} Add to-do's</h1>
+        <form action="/" method="POST" class="my-4">
+            {% csrf_token %}
+            <div class="mx-5 my-3">
+                <label for="title" class="form-label">title</label>
+                <input type="text" class="form-control" id="title" name="title" ria-describedby=" emailHelp ">
+
+            </div>
+            <div class="mx-5 mb-3">
+                <label for="desc" class="form-label ">Discription</label>
+                <textarea style="height: 8rem;" type="text" class="form-control " id="desc" name="desc"></textarea>
+            </div>
+            <button type="submit " class="btn btn-primary mx-5">Submit</button>
+        </form>
+    </div>
+    <footer>
+        <p class="text-center bg-dark text-light fixed-bottom p-3 m-0">Copyright &copy; 2021 | tarun kumar</p>
+    </footer>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js " integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0 " crossorigin="anonymous "></script>
+
+
+</body>
+
+</html>

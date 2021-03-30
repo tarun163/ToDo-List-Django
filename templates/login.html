@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>login-page</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <div>
+        <button onclick="goBack()" style="text-decoration: none; border-radius: 50%; border: none; ">X</button>
+    </div>
+    <div class=" col-lg-4 mx-auto my-4">
+
+        <div class="p-4">
+            <form action="/login/" method="POST" class="shadow px-3">
+                {% csrf_token %}
+                <div class="alert alert-info " style="margin-left:-1rem; margin-right:-1rem;">login Account</div>
+                {{form.as_p}}
+                <hr>
+                <button type="submit " class="btn btn-info my-2">Login</button>
+                <div class="my-2 ">
+
+                    <a href="{% url 'signup' %}" style="text-decoration: none; ">Create Account</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js " integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0 " crossorigin="anonymous "></script>
+
+
+</body>
+
+</html>
