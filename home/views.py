@@ -23,7 +23,7 @@ def tasks(request):
     return render(request,'tasks.html',context)  
 
 def delete(request,id ):
-    alltasks = Task.objects.all()
+    alltasks = Task.objects.all() 
     print(id)
     Task.objects.get(pk = id).delete()   
     context = {'success':True,'tasks':alltasks}
@@ -75,7 +75,6 @@ def login(request):
             print(user)
             if user is not None:
                 loginUser(request, user)
-                #return render(request,'index.html', {"name":username})
                 return redirect('home' ) 
         else:
             return render(request, 'login.html',context)    
