@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from home.models import Task
-from django.contrib.auth import authenticate, login as loginUser
+from django.contrib.auth import authenticate, login as loginUser,logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 # Create your views here.
@@ -102,3 +102,7 @@ def signup(request):
         form = UserCreationForm()
         context = {'form':form}
         return render(request,'signup.html', context)
+    
+def log_out(request):
+    logout(request)
+    return redirect('login')    
