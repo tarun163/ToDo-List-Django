@@ -1,5 +1,9 @@
 # ToDo-List-Django
-Here i have created my to-do list project in Django framwork using python.
-anyone can create own account and use it by sign-in.
-anyone can create to-do with title and decreaption with time, and delete or update the list of to-do's.
 
+A simple todo list app built in HTML, CSS and JavaScript.
+A Dynamic app on Django framework and SQLI Batabase .
+User Authemtication By Mobile number and #Massage OTP .
+
+#for Creating Requements are -
+- Django -Python 
+- MSG91 for sending sms otp
