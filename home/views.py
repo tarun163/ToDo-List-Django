@@ -64,7 +64,14 @@ def delete(request, id):
     alltasks = Task.objects.all()
     print(id)
     Task.objects.get(pk=id).delete()
-    return redirect('tasks')
+    task = Task.objects.all()
+    context = {
+            'success': True,
+            'message': "task deleted successfully",
+            'class': "alert-success",
+            'tasks':task
+        }
+    return render(request, 'tasks.html', context)
 
 
 def update(request, id):
@@ -90,8 +97,15 @@ def edit(request, id):
         update_at = datetime.datetime.now()
         obj.time = update_at
         inses = Task.objects.filter(pk=id).update(taskname=obj.title, taskdesc=obj.desc)
-     
-        return redirect('tasks')
+        task = Task.objects.all()
+        context = {
+            'success': True,
+            'message': "task updated successfully",
+            'class': "alert-success",
+            'tasks':task
+        }
+        return render(request, 'tasks.html', context)
+    return redirect('home')    
 
 def search(request):
     if request.method == 'GET':
